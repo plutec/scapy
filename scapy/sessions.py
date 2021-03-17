@@ -190,6 +190,10 @@ class StringBuffer(object):
         # for ifrag in self.incomplete:
         #     if [???]:
         #         self.incomplete.remove([???])
+        # Workaround
+        if seq < 0:
+            seq = 0
+        # End workaround
         memoryview(self.content)[seq:seq + data_len] = data  # type: ignore
 
     def full(self):
